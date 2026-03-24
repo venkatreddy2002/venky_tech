@@ -1,0 +1,87 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Home - Venky Tech{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hero {
+        position: relative;
+        height: 600px;
+        background-image: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url("{% static 'main/images/tech_bg.png' %}");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        border-bottom: 2px solid var(--accent);
+    }
+
+    .hero h1 {
+        font-family: var(--font-heading);
+        font-size: 4rem;
+        color: var(--white);
+        margin-bottom: 20px;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+        max-width: 800px;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        text-align: center;
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        margin: 80px 0 40px;
+        color: var(--white);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Innovative Solutions</h1>
+    <p>Empowering your digital journey with cutting-edge technology and modern design.</p>
+    <div class="hero-btns">
+        <a href="{% url 'about' %}" class="btn btn-primary">Explore Services</a>
+    </div>
+</section>
+
+<div class="container" id="features">
+    <h2 class="section-title">Our Expertise</h2>
+    <div class="card-grid">
+        <div class="card">
+            <i class="fas fa-microchip card-icon"></i>
+            <h3>Artificial Intelligence</h3>
+            <p>Leveraging advanced neural networks to solve complex business challenges and automate workflows.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-code card-icon"></i>
+            <h3>Frontend Development</h3>
+            <p>Crafting pixel-perfect, responsive, and highly interactive user interfaces using modern web technologies.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-server card-icon"></i>
+            <h3>Backend Development</h3>
+            <p>Building robust, scalable, and secure server-side architectures to power your complex applications.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-cloud card-icon"></i>
+            <h3>Cloud Infrastructure</h3>
+            <p>Scalable, secure, and highly available cloud solutions designed for the modern enterprise.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shield-halved card-icon"></i>
+            <h3>Cyber Security</h3>
+            <p>End-to-end security protocols to protect your most valuable digital assets from evolving threats.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

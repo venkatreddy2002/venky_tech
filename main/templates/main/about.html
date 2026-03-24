@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}About Us - Venky Tech{% endblock %}
+
+{% block extra_css %}
+<style>
+    .about-section {
+        padding: 150px 0 100px;
+    }
+    .about-content {
+        background: var(--secondary);
+        padding: 60px;
+        border-radius: 12px;
+        border: 1px solid var(--glass-border);
+    }
+    .about-content h1 {
+        font-family: var(--font-heading);
+        font-size: 3rem;
+        color: var(--white);
+        margin-bottom: 30px;
+    }
+    .about-content p {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container about-section">
+    <div class="about-content">
+        <h1>Our Vision</h1>
+        <p>At Venky Tech, we believe in the power of innovation to transform the world. Our mission is to provide high-quality, scalable, and secure technology solutions that empower businesses to reach their full potential.</p>
+        <p>Founded on the principles of excellence and integrity, we lead with a human-centric approach to digital transformation.</p>
+    </div>
+</div>
+{% endblock %}

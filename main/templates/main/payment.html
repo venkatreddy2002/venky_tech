@@ -1,0 +1,108 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Subscribe - Venky Tech{% endblock %}
+
+{% block extra_css %}
+<style>
+    .payment-section {
+        padding: 150px 0 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+    }
+    .payment-card {
+        background: var(--secondary);
+        padding: 50px;
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        backdrop-filter: blur(20px);
+    }
+    .payment-card h1 {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        color: var(--white);
+        margin-bottom: 10px;
+    }
+    .payment-card p {
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+    }
+    .qr-container {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        display: inline-block;
+        margin-bottom: 30px;
+        box-shadow: 0 0 20px var(--accent);
+    }
+    .qr-container img {
+        width: 250px;
+        height: 250px;
+        display: block;
+    }
+    .payment-details {
+        text-align: left;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+    .detail-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--glass-border);
+        padding-bottom: 5px;
+    }
+    .detail-label {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+    .detail-value {
+        color: var(--accent);
+        font-weight: 600;
+    }
+    .payment-note {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        font-style: italic;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container payment-section">
+    <div class="payment-card glass-morphism">
+        <h1>Complete Subscription</h1>
+        <p>Scan the QR code below to proceed with your premium subscription.</p>
+        
+        <div class="qr-container">
+            <img src="{% static 'main/images/payment_qr.jpg' %}" alt="Payment QR Code">
+        </div>
+
+        <div class="payment-details">
+            <div class="detail-item">
+                <span class="detail-label">Service</span>
+                <span class="detail-value">Venky Tech Premium</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">UPI ID</span>
+                <span class="detail-value">7995203602@ybl</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Amount</span>
+                <span class="detail-value">Dynamic Pricing</span>
+            </div>
+        </div>
+
+        <p class="payment-note">Please ensure you complete the transaction within your UPI app.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary" style="margin-top: 20px; width: 100%;">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
