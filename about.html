@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Venky Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/main/css/base.css">
+    <style>
+        .about-section {
+            padding: 150px 0 100px;
+        }
+        .about-content {
+            background: var(--secondary);
+            padding: 60px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+        .about-content h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+        .about-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="static/main/images/logo.png" alt="Logo">
+            <span class="nav-brand-text">Venky Tech</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </div>
+        <div class="nav-actions">
+            <a href="contact.html" class="btn btn-contact">Contact</a>
+            <button class="btn btn-subscribe">Subscribe</button>
+        </div>
+    </nav>
+    <main>
+        <div class="container about-section">
+            <div class="about-content">
+                <h1>Our Vision</h1>
+                <p>At Venky Tech, we believe in the power of innovation to transform the world. Our mission is to provide high-quality, scalable, and secure technology solutions that empower businesses to reach their full potential.</p>
+                <p>Founded on the principles of excellence and integrity, we lead with a human-centric approach to digital transformation.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-logo">
+            <img src="static/main/images/logo.png" alt="Venky Tech Logo">
+        </div>
+        <p>&copy; 2026 Venky Tech. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const subscribeBtn = document.querySelector('.btn-subscribe');
+            if (subscribeBtn) {
+                subscribeBtn.addEventListener('click', function() {
+                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                    const upiLink = "upi://pay?pa=7995203602@ybl&pn=Venky%20Tech&cu=INR";
+                    if (isMobile) { window.location.href = upiLink; } else { window.location.href = "payment.html"; }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

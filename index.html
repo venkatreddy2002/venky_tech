@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Venky Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/main/css/base.css">
+    <style>
+        .hero {
+            position: relative;
+            height: 600px;
+            background-image: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url("static/main/images/tech_bg.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin: 80px 0 40px;
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="static/main/images/logo.png" alt="Logo">
+            <span class="nav-brand-text">Venky Tech</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </div>
+        <div class="nav-actions">
+            <a href="contact.html" class="btn btn-contact">Contact</a>
+            <button class="btn btn-subscribe">Subscribe</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Innovative Solutions</h1>
+            <p>Empowering your digital journey with cutting-edge technology and modern design.</p>
+            <div class="hero-btns">
+                <a href="about.html" class="btn btn-primary">Explore Services</a>
+            </div>
+        </section>
+
+        <div class="container" id="features">
+            <h2 class="section-title">Our Expertise</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <i class="fas fa-microchip card-icon"></i>
+                    <h3>Artificial Intelligence</h3>
+                    <p>Leveraging advanced neural networks to solve complex business challenges and automate workflows.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-code card-icon"></i>
+                    <h3>Frontend Development</h3>
+                    <p>Crafting pixel-perfect, responsive, and highly interactive user interfaces using modern web technologies.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-server card-icon"></i>
+                    <h3>Backend Development</h3>
+                    <p>Building robust, scalable, and secure server-side architectures to power your complex applications.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-cloud card-icon"></i>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>Scalable, secure, and highly available cloud solutions designed for the modern enterprise.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shield-halved card-icon"></i>
+                    <h3>Cyber Security</h3>
+                    <p>End-to-end security protocols to protect your most valuable digital assets from evolving threats.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="static/main/images/logo.png" alt="Venky Tech Logo">
+        </div>
+        <p>&copy; 2026 Venky Tech. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const subscribeBtn = document.querySelector('.btn-subscribe');
+
+            if (subscribeBtn) {
+                subscribeBtn.addEventListener('click', function() {
+                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                    const upiLink = "upi://pay?pa=7995203602@ybl&pn=Venky%20Tech&cu=INR";
+                    
+                    if (isMobile) {
+                        window.location.href = upiLink;
+                    } else {
+                        window.location.href = "payment.html";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
