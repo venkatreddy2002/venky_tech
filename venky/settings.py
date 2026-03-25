@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -117,3 +122,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Email Configuration (SMTP with File-based Fallback)
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+# Only use SMTP if real credentials are provided
+if (EMAIL_HOST_USER and 'change-me' not in EMAIL_HOST_USER and 
+    EMAIL_HOST_PASSWORD and 'your-app-password' not in EMAIL_HOST_PASSWORD):
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
+    EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
+    EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+    print("EMAIL STATUS: Using REAL SMTP Backend")
+else:
+    # Fallback to local file logging for easier verification
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH = BASE_DIR / "app_emails.log"
+    DEFAULT_FROM_EMAIL = "webmaster@venkytech.com"
+    print("EMAIL STATUS: Using File Fallback (SMTP Credentials Missing/Default)")
+
+CONTACT_RECIPIENT_EMAIL = os.getenv('CONTACT_RECIPIENT_EMAIL', 'sivakrishnareddypinna@gmail.com')
